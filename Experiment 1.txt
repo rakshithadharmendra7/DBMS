@@ -1,0 +1,118 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.45 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> USE College;
+Database changed
+mysql> SHOW TABLES;
+Empty set (0.06 sec)
+
+mysql> CREATE TABLE STUDENT(
+    ->     RegNo INT,
+    ->     Name VARCHAR(15),
+    ->     Gender CHAR(1),
+    ->     DOB DATE,
+    ->     MobileNo BIGINT,
+    ->     City VARCHAR(15)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql>
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_college |
++-------------------+
+| student           |
++-------------------+
+1 row in set (0.02 sec)
+
+mysql> DESC STUDENT;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| RegNo    | int         | YES  |     | NULL    |       |
+| Name     | varchar(15) | YES  |     | NULL    |       |
+| Gender   | char(1)     | YES  |     | NULL    |       |
+| DOB      | date        | YES  |     | NULL    |       |
+| MobileNo | bigint      | YES  |     | NULL    |       |
+| City     | varchar(15) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> CREATE TABLE FACULTY(
+    ->     FacNo VARCHAR(4),
+    ->     FacName VARCHAR(15),
+    ->     Gender CHAR(1),
+    ->     DOB DATE,
+    ->     DOJ DATE,
+    ->     MobileNo BIGINT
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE COURSE(
+    ->     CourseNo VARCHAR(3),
+    ->     CourseDesc VARCHAR(14),
+    ->     CourseType CHAR(1),
+    ->     SemNo CHAR(1),
+    ->     HallNo VARCHAR(4),
+    ->     FacNo VARCHAR(4)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_college |
++-------------------+
+| course            |
+| faculty           |
+| student           |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE TABLE DEPARTMENT(
+    ->     DeptNo VARCHAR(4),
+    ->     DeptName VARCHAR(15),
+    ->     DeptHead VARCHAR(4)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_college |
++-------------------+
+| course            |
+| department        |
+| faculty           |
+| student           |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE FACULTY
+    -> ADD Dept VARCHAR(10);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESC FACULTY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| FacNo    | varchar(4)  | YES  |     | NULL    |       |
+| FacName  | varchar(15) | YES  |     | NULL    |       |
+| Gender   | char(1)     | YES  |     | NULL    |       |
+| DOB      | date        | YES  |     | NULL    |       |
+| DOJ      | date        | YES  |     | NULL    |       |
+| MobileNo | bigint      | YES  |     | NULL    |       |
+| Dept     | varchar(10) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql>
